@@ -8,6 +8,11 @@ on:
       - 'main.go'
       - 'go.mod'
       - 'go.sum'
+      # Merging a release PR only touches the manifest; it must still run so
+      # release-please can tag the release and publish it.
+      - '.release-please-manifest.json'
+      - '.github/workflows/release.yaml'
+  workflow_dispatch:
 
 permissions:
   contents: write
